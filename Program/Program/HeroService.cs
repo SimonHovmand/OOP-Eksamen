@@ -3,17 +3,10 @@ namespace FightArena
 {
     internal class HeroService
     {
-        private readonly Controller _controller;
 
-        public HeroService(Controller controller)
-        {
-            _controller = controller;
-        }
+        public List<Hero> heroes = new List<Hero>(); //Making a list to store the heros
 
-
-        public List<Hero> heroes = new List<Hero>();
-        
-        public HeroService()
+        public HeroService() //Constructor making the herom
         {
             heroes.Add(new Hero(1, "Kong Fu Harry", 120, 2,2, 5,5));
             heroes.Add(new Hero(2, "Super Hunden Dino", 70, 6,8, 2,8));
@@ -31,7 +24,7 @@ namespace FightArena
             {
                 if (looser == hero.id)
                 {
-                    Console.WriteLine("NEJ");
+                    Console.WriteLine("test1");
                 }
             }
         }

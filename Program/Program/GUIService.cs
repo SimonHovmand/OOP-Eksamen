@@ -8,7 +8,7 @@ namespace FightArena
 {
     internal class GUIService : IGUIService
     {
-        public void showallfighter(List<Hero> a)
+        public void showallfighter(List<Hero> a) //Prints all the fighters
         {
             foreach (Hero hero in a)
             {
@@ -16,7 +16,7 @@ namespace FightArena
             }
         }
 
-        public int SelectFighter1()
+        public int SelectFighter1() //Makes you select a fighter
         {
             Console.WriteLine("Indtast ID'et på den første fighter.");
 
@@ -24,16 +24,16 @@ namespace FightArena
 
             String Line = Console.ReadLine();
 
-            while (!Int32.TryParse(Line, out choise1))
+            while (!Int32.TryParse(Line, out choise1)) //Checks if the input is a number
             {
                 Console.WriteLine("Der skete en fejl, indtast ID'et på den første fighter.");
 
                 Line = Console.ReadLine();
             }
-            return choise1;
+            return choise1; //Returns the choise
         }
 
-        public int SelectFighter2(int choise1)
+        public int SelectFighter2(int choise1) //Makes you select a fighter
         {
             while (true)
             {
@@ -43,20 +43,20 @@ namespace FightArena
 
                 String Line = Console.ReadLine();
 
-                while (!Int32.TryParse(Line, out choise2))
+                while (!Int32.TryParse(Line, out choise2))  //Checks if the input is a number
                 {
                     Console.WriteLine("der skete en fejl, indtast ID'et på den anden fighter.");
 
                     Line = Console.ReadLine();
                 }
 
-                if (choise1 == choise2)
+                if (choise1 == choise2) //Checks if choise2 is the same as choise1
                 {
                     Console.WriteLine("Du må ikke intaste det samme ID som på den første figther!");
 
                     String Line2 = Console.ReadLine();
 
-                    while (!Int32.TryParse(Line2, out choise2))
+                    while (!Int32.TryParse(Line2, out choise2))  //Checks if the input is a number
                     {
                         Console.WriteLine("der skete en fejl, indtast ID'et på den anden fighter.");
 
@@ -64,12 +64,12 @@ namespace FightArena
                     }
                 } else
                 {
-                    return choise2;
+                    return choise2;  //Returns the choise
                 }
             }
         }
 
-        public void ShowFighters (int choise1, int choise2, List<Hero> a)
+        public void ShowFighters (int choise1, int choise2, List<Hero> a) //Prints the list of the choosen heros/fighters
         {
             int count1 = 0;
             int count2 = 0;
@@ -100,7 +100,7 @@ namespace FightArena
                 }
             }
         }
-        public int Fight(int choise1, int choise2, List<Hero> a)
+        public int Fight(int choise1, int choise2, List<Hero> a) //The fight
         {
             Random rnd = new Random();
 
@@ -112,25 +112,25 @@ namespace FightArena
             int f2A = 0;
             int f2D = 0;
 
-            foreach (Hero hero in a)
+            foreach (Hero hero in a) //Sets the hitpoint, attack and defence values
             {
                 if (choise1 == hero.id)
                 {
                     f1H = hero.hitpoint;
-                    f1A = rnd.Next(hero.lowattack, hero.highattack);
-                    f1D = rnd.Next(hero.lowattack, hero.highattack);
+                    f1A = rnd.Next(hero.lowattack, hero.highattack); //Sets the attack to be a number between the low and high attack
+                    f1D = rnd.Next(hero.lowattack, hero.highattack);  //Sets the defence  to be a number between the low and high defence
                 }
                 if (choise2 == hero.id)
                 {
                     f2H = hero.hitpoint;
-                    f2A = rnd.Next(hero.lowattack, hero.highattack);
-                    f2D = rnd.Next(hero.lowattack, hero.highattack);
+                    f2A = rnd.Next(hero.lowattack, hero.highattack);  //Sets the attack to be a number between the low and high attack
+                    f2D = rnd.Next(hero.lowattack, hero.highattack); //Sets the defence  to be a number between the low and high defence
                 }
             }
 
             bool run = true;
 
-            while (run)
+            while (run) 
             {
                 if (f1H > 0)
                 {

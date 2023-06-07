@@ -6,17 +6,17 @@
         {
             IController ctrl = new Controller(new GUIService(), new HeroService());
 
-            ctrl.showallfighter();
+            ctrl.showallfighter(); //Calls Showallfighter to show all the fighters
 
-            int choise1 = ctrl.SelectFighter1();
+            int choise1 = ctrl.SelectFighter1(); //An int variable that calls SelectFighter1
 
-            int choise2 = ctrl.SelectFighter2(choise1);
+            int choise2 = ctrl.SelectFighter2(choise1); //An int variable that calls SelectFighter2
 
-            ctrl.ShowFighters(choise1, choise2);
+            ctrl.ShowFighters(choise1, choise2); //Calls ShowFighters
 
-            int looser = ctrl.Fight(choise1, choise2);
+            int looser = ctrl.Fight(choise1, choise2); //An int variable that calls Fight
 
-            ctrl.RemoveLooser(looser);
+            ctrl.RemoveLooser(looser); //Calls RemoveLooser
         }
     }
 }
